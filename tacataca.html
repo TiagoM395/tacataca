@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Frecuencia y Simulación de Apuestas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0056b3;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #28a745;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #e9ecef;
+            color: #333;
+        }
+        .simulation-section {
+            background-color: #e6f7ff; /* Color de fondo para la simulación */
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            color: #004085;
+            border: 1px solid #b8daff;
+        }
+        .simulation-section h3 {
+            color: #0056b3;
+            margin-top: 0;
+            border-bottom: 1px solid #b8daff;
+            padding-bottom: 5px;
+        }
+        .result-box {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+        }
+        .result-box p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Análisis de Frecuencia y Simulación de Apuestas Online</h1>
+        <p>Este informe presenta los análisis de frecuencia solicitados y los resultados de la simulación de probabilidad, mostrados directamente en la vista.</p>
+        
+        <hr>
+
+        <h2>📊 1. Frecuencia de Apuestas por Día de la Semana</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Día de la Semana</th>
+                    <th>Frecuencia Absoluta (Conteo)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Lunes</td><td>6</td></tr>
+                <tr><td>Martes</td><td>6</td></tr>
+                <tr><td>Miércoles</td><td>7</td></tr>
+                <tr><td>Jueves</td><td>4</td></tr>
+                <tr><td>Viernes</td><td>5</td></tr>
+                <tr><td>Sábado</td><td>6</td></tr>
+                <tr><td>Domingo</td><td>6</td></tr>
+                <tr><td><strong>Total de menciones</strong></td><td><strong>40</strong></td></tr>
+            </tbody>
+        </table>
+        
+        <hr>
+
+        <h2>⏳ 2. Cantidad de Horas Destinadas a las Apuestas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rango de Horas por Día</th>
+                    <th>Frecuencia Absoluta (Conteo)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Menos de 1 hora</td><td>5</td></tr>
+                <tr><td>1 a 2 horas</td><td>3</td></tr>
+                <tr><td>Más de 3 horas</td><td>4</td></tr>
+                <tr><td><strong>Total de Respuestas Válidas</strong></td><td><strong>12</strong></td></tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>💰 3. Origen del Dinero para las Apuestas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Origen del Dinero</th>
+                    <th>Frecuencia Absoluta (Conteo)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Un familiar</td><td>4</td></tr>
+                <tr><td>Otro</td><td>4</td></tr>
+                <tr><td>Becas</td><td>2</td></tr>
+                <tr><td>Trabajo</td><td>2</td></tr>
+                <tr><td><strong>Total de Respuestas Válidas</strong></td><td><strong>12</strong></td></tr>
+            </tbody>
+        </table>
+        
+        <hr>
+
+        <h2>💻 4. Simulación y Análisis de Probabilidad (Resultados en Vista)</h2>
+        <div class="simulation-section">
+            <p>Las siguientes probabilidades se estiman mediante muestreo aleatorio con reemplazo, ejecutado por JavaScript al cargar la página:</p>
+            
+            <h3>Simulación 1: Muestra de N = 50</h3>
+            <div id="simulacion1_resultados" class="result-box">
+                <p>Cargando resultados...</p>
+            </div>
+
+            <h3>Simulación 2: Muestra de N = 100</h3>
+            <div id="simulacion2_resultados" class="result-box">
+                <p>Cargando resultados...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Datos simplificados de los 13 participantes que sí apuestan
+        const datos_apuestas = [
+            { FrecuenciaAlta: 1, MontoAlto: 1 }, { FrecuenciaAlta: 1, MontoAlto: 0 },
+            { FrecuenciaAlta: 0, MontoAlto: 1 }, { FrecuenciaAlta: 1, MontoAlto: 1 },
+            { FrecuenciaAlta: 0, MontoAlto: 0 }, { FrecuenciaAlta: 0, MontoAlto: 0 },
+            { FrecuenciaAlta: 1, MontoAlto: 1 }, { FrecuenciaAlta: 1, MontoAlto: 0 },
+            { FrecuenciaAlta: 0, MontoAlto: 0 }, { FrecuenciaAlta: 1, MontoAlto: 1 },
+            { FrecuenciaAlta: 1, MontoAlto: 0 }, { FrecuenciaAlta: 0, MontoAlto: 0 },
+            { FrecuenciaAlta: 1, MontoAlto: 0 }
+        ];
+
+        /**
+         * Función para realizar un muestreo aleatorio con reemplazo.
+         */
+        function sampleWithReplacement(data, n) {
+            const result = [];
+            for (let i = 0; i < n; i++) {
+                const index = Math.floor(Math.random() * data.length);
+                result.push(data[index]);
+            }
+            return result;
+        }
+
+        /**
+         * Función principal para ejecutar las simulaciones y mostrar los resultados.
+         */
+        function ejecutarSimulaciones() {
+            // --- FUNCIÓN PARA PROCESAR Y MOSTRAR RESULTADOS ---
+            function procesarSimulacion(N, idElemento) {
+                const muestra = sampleWithReplacement(datos_apuestas, N);
+
+                // Estimación de Probabilidad de Frecuencia Alta (1: > 2 veces/sem)
+                const conteoFrecuenciaAlta = muestra.filter(p => p.FrecuenciaAlta === 1).length;
+                const probabilidadFrecuenciaAlta = conteoFrecuenciaAlta / N;
+
+                // Estimación de Probabilidad de Monto Alto (1: > $10.000)
+                const conteoMontoAlto = muestra.filter(p => p.MontoAlto === 1).length;
+                const probabilidadMontoAlto = conteoMontoAlto / N;
+
+                // Formato de salida para la vista
+                const htmlResultado = `
+                    <p><strong>Tamaño de Muestra (N): ${N}</strong></p>
+                    <p>Probabilidad estimada (Frecuencia Alta - más de 2 veces/sem): <strong>${(probabilidadFrecuenciaAlta * 100).toFixed(2)}%</strong></p>
+                    <p>Probabilidad estimada (Monto > $10.000): <strong>${(probabilidadMontoAlto * 100).toFixed(2)}%</strong></p>
+                `;
+
+                // Inyectar el HTML en el contenedor
+                document.getElementById(idElemento).innerHTML = htmlResultado;
+            }
+
+            // Ejecutar y mostrar las dos simulaciones
+            procesarSimulacion(50, "simulacion1_resultados"); // N = 50
+            procesarSimulacion(100, "simulacion2_resultados"); // N = 100
+        }
+
+        // Ejecutar las simulaciones cuando el navegador termine de cargar el DOM
+        document.addEventListener('DOMContentLoaded', ejecutarSimulaciones);
+    </script>
+
+</body>
+</html>
